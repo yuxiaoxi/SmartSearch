@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+            <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/lv_smart"
+            android:background="#909090"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="登录点评账号，为您推荐精准推荐" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="立即登录"
+                    android:textColor="#ff6347" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <ListView
+            android:id="@+id/lv_data"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:descendantFocusability="blocksDescendants"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:background="#BFBFBF"
+            android:cacheColorHint="@null"
+            android:divider="@null"
+            android:listSelector="@android:color/transparent" />
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="#FFFFFF"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/lv_tag"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:cacheColorHint="@null"
+                android:divider="@null" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/recommend_border"
+                android:padding="5dp"
+                android:text="直接推荐"
+                android:textColor="#ffffff" />
+
+
+        </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+
+        android:layout_height="60dp"
+        android:background="#BFBFBF"
+        android:clickable="true"
+        android:gravity="bottom"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/et_row"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:background="#FFFFFF"
+            android:hint="找餐厅、选外卖，就问点小评~"
+            android:paddingLeft="20dp"
+            android:textSize="14dp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/ic_launcher" />
+    </LinearLayout>
+</LinearLayout>
