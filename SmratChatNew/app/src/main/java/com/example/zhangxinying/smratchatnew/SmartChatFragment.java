@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.BaseAdapter;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
@@ -25,11 +26,14 @@ public class SmartChatFragment extends Fragment implements View.OnClickListener 
     private LinearLayoutManager mLayoutManager;
     private LinearLayout mLlsmart;
     private InputMethodManager manager = null;
+    private EditText et_row;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         View view = inflater.inflate(R.layout.fragement_smart, null);
+        et_row = (EditText) view.findViewById(R.id.et_row);
         mlvData = (ListView) view.findViewById(R.id.lv_data);
         mlvData.setAdapter(getDdataAdapter());
         mlvTag = (RecyclerView) view.findViewById(R.id.lv_tag);
@@ -37,6 +41,7 @@ public class SmartChatFragment extends Fragment implements View.OnClickListener 
         mLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         mlvTag.setLayoutManager(mLayoutManager);
         mlvTag.setAdapter(getTagAdapter());
+
         return view;
 
     }
@@ -44,14 +49,24 @@ public class SmartChatFragment extends Fragment implements View.OnClickListener 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mLlsmart = (LinearLayout)getActivity().findViewById(R.id.lv_smart);
+        mLlsmart = (LinearLayout) getActivity().findViewById(R.id.lv_smart);
         mLlsmart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                InputMethodManager imm = ( InputMethodManager )getActivity().getSystemService( Context.INPUT_METHOD_SERVICE );
-                if ( imm.isActive( ) ) {
-                    imm.hideSoftInputFromWindow( v.getApplicationWindowToken( ) , 0 );}
+                InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+                if (imm.isActive()) {
+                    imm.hideSoftInputFromWindow(v.getApplicationWindowToken(), 0);
+                    et_row.clearFocus();
+                }
 
+            }
+        });
+        mlvData.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                if (b) {
+                    hideInputMethod(getActivity(),view);
+                }
             }
         });
     }
@@ -161,6 +176,8 @@ public class SmartChatFragment extends Fragment implements View.OnClickListener 
     }
 
 
+
+
     @Override
     public void onClick(View v) {
 //        switch (v.getId()) {
@@ -173,5 +190,15 @@ public class SmartChatFragment extends Fragment implements View.OnClickListener 
 //            }
 //
 //        }
+    }
+
+
+    public static Boolean hideInputMethod(Context context, View v) {
+        InputMethodManager imm = (InputMethodManager) context
+                .getSystemService(Context.INPUT_METHOD_SERVICE);
+        if (imm != null) {
+            return imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+        }
+        return false;
     }
 }
