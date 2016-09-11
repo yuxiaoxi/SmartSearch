@@ -27,6 +27,7 @@ public class SmartChatFragment extends Fragment implements View.OnClickListener 
     private LinearLayout mLlsmart;
     private InputMethodManager manager = null;
     private EditText et_row;
+//    private int spacingInpixels=10;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -39,6 +40,8 @@ public class SmartChatFragment extends Fragment implements View.OnClickListener 
         mlvTag = (RecyclerView) view.findViewById(R.id.lv_tag);
         mLayoutManager = new LinearLayoutManager(getActivity());
         mLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+//        spacingInpixels=getResources().getDimensionPixelSize(R.dimen.item_decoration);
+//        mlvTag.addItemDecoration(new SpaceItemDecoration(spacingInpixels));
         mlvTag.setLayoutManager(mLayoutManager);
         mlvTag.setAdapter(getTagAdapter());
 

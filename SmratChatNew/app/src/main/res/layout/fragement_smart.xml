@@ -39,17 +39,19 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:cacheColorHint="@null"
                 android:divider="@null" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:background="@drawable/recommend_border"
                 android:padding="5dp"
                 android:text="直接推荐"
+                android:visibility="visible"
                 android:textColor="#ffffff" />
 
 
@@ -78,10 +80,14 @@
                 android:paddingLeft="20dp"
                 android:textSize="14dp" />
 
-            <ImageView
-                android:layout_width="wrap_content"
+            <TextView
+                android:layout_width="50dp"
                 android:layout_height="match_parent"
-                android:background="@drawable/ic_launcher" />
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:text="发送"
+
+                android:background="@drawable/textview_border" />
         </LinearLayout>
     </LinearLayout>
 
