@@ -12,8 +12,8 @@ import java.util.List;
  * Created by zhangxinying on 16/9/8.
  */
 public class TagAdapter extends RecyclerView.Adapter<TagAdapter.MyViewHolder> {
-    private List<Message> mylist;
-    private Context mContex;
+    private List<Message> mylist = null;
+    private Context mContex = null;
 
 
     public TagAdapter(Context context, List<Message> msglist) {
